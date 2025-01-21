@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">App Info Checker</string>
+    <string translatable="false" name="app_name">App Info Checker</string>
+    <string name="app_list">Список приложений на устройстве</string>
+    <string name="app_info">Информация о приложении</string>
 </resources>

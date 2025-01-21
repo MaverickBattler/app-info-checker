@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_navigation">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/appList">
+    <fragment
+        android:id="@+id/appList"
+        android:name="com.kirillmokhnatkin.appinfochecker.ui.fragment.AppListFragment"
+        android:label="@string/app_list"
+        tools:layout="@layout/fragment_app_list">
+        <action
+            android:id="@+id/action_appList_to_appInfo"
+            app:destination="@id/appInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/appInfo"
+        android:name="com.kirillmokhnatkin.appinfochecker.ui.fragment.AppInfoFragment"
+        android:label="@string/app_info"
+        tools:layout="@layout/fragment_app_info">
+    </fragment>
 </navigation>
