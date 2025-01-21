@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="light_gray">#D5D5D5</color>
+    <color name="gray">#7E7E7E</color>
+    <color name="dark_gray_main">#222222</color>
+    <color name="dark_gray_secondary">#454545</color>
+    <color name="very_dark_gray">#1A1A1A</color>
+    <color name="almost_black">#121212</color>
+    <color name="black">#FF000000</color>
+    <color name="red">#FB3737</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="pale_green">#00653D</color>
+    <color name="dark_green">#00472B</color>
+    <color name="aquamarine">#08BF7E</color>
+    <color name="turquoise">#009767</color>
+    <color name="success_green">#0CBD00</color>
+</resources>
