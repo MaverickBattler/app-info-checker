@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ListItemText">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ListItemMainText" parent="ListItemText">
+        <item name="android:textSize">@dimen/listItemMainTextSize</item>
+        <item name="android:textColor">?attr/textColorMain</item>
+    </style>
+
+    <style name="ListItemSecondaryText" parent="ListItemText">
+        <item name="android:textSize">@dimen/listItemSecondaryTextSize</item>
+        <item name="android:textColor">?attr/textColorSecondary</item>
+    </style>
+
+    <style name="PageText">
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TitleText" parent="PageText">
+        <item name="android:maxLines">3</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/textSizeTitleText</item>
+        <item name="android:textColor">?attr/textColorMain</item>
+    </style>
+
+    <style name="RegularText" parent="PageText">
+        <item name="android:maxLines">2</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textSize">@dimen/textSizeRegularText</item>
+        <item name="android:textColor">?attr/textColorMain</item>
+    </style>
+</resources>

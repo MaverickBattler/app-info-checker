@@ -8,7 +8,12 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.10.0"
 constraintlayout = "2.2.0"
-navigation = "2.8.5"
+navigation = "2.5.3"
+koin = "3.2.0"
+recyclerview = "1.4.0"
+timber = "5.0.1"
+safeargs = "2.8.5"
+swiperefreshlayout = "1.2.0-alpha01"
 
 [libraries]
 
@@ -31,11 +36,25 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 # constraint layout
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
+# recycler view
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview"}
+
+# swipe refresh layout
+androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout"}
+
+# logging
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber"}
+
 # navigation
 androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
 androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
 
+# di
+koin = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+safeargs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "safeargs" }
+
 

@@ -2,4 +2,13 @@
 <resources>
     <string name="app_list">Applications on Device</string>
     <string name="app_info">Application Info</string>
+    <string name="version_unknown">Unknown</string>
+    <string name="version_is_value">Version: %s</string>
+    <string name="app_icon">App Icon</string>
+    <string name="version_is">"Version: "</string>
+    <string name="package_name">Package:</string>
+    <string name="apk_checksum">APK checksum (CRC-32):</string>
+    <string name="open_app">Open the app</string>
+    <string name="error_getting_app_data">Error getting app data</string>
+    <string name="app_opening_error">Couldn\'t open the app</string>
 </resources>

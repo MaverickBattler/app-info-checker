@@ -1,5 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string translatable="false" name="app_name">App Info Checker</string>
-    <string name="app_list">Список приложений на устройстве</string>
+    <string name="app_list">Приложения на устройстве</string>
     <string name="app_info">Информация о приложении</string>
+    <string name="version_unknown">Неизвестна</string>
+    <string name="version_is_value">Версия: %s</string>
+    <string name="app_icon">Иконка приложения</string>
+    <string name="version_is">"Версия: "</string>
+    <string name="package_name">Имя пакета:</string>
+    <string name="apk_checksum">Контрольная сумма apk-файла (CRC-32):</string>
+    <string name="open_app">Открыть приложение</string>
+    <string name="error_getting_app_data">Ошибка получения данных о приложении</string>
+    <string name="app_opening_error">Не получилось открыть приложение</string>
 </resources>

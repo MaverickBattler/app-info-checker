@@ -10,11 +10,13 @@
         android:layout_width="@dimen/appInfoIconSize"
         android:layout_height="@dimen/appInfoIconSize"
         android:contentDescription="@string/app_icon"
+        android:text="@string/package_name"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/separator"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintVertical_bias="0.2"
         tools:src="@tools:sample/avatars" />
 
     <TextView
@@ -22,32 +24,49 @@
         style="@style/TitleText"
         android:layout_marginTop="@dimen/distanceLarge"
         android:paddingHorizontal="@dimen/contentHorizontalPadding"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/separator"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_icon_imageview"
         tools:text="Cool App" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_text_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="0.5dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/distanceMedium"
+        android:background="?attr/controlColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guideline_text_start"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/app_version_textview"
         style="@style/RegularText"
-        android:layout_marginTop="@dimen/distanceVeryLarge"
+        android:gravity="center"
         android:paddingHorizontal="@dimen/contentHorizontalPadding"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/separator"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/app_name_textview"
+        app:layout_constraintTop_toBottomOf="@+id/app_name_textview"
         tools:text="Версия: 0.11.124" />
 
     <TextView
         android:id="@+id/app_package_name_textview"
         style="@style/RegularText"
-        android:layout_marginTop="@dimen/distanceMedium"
         android:paddingHorizontal="@dimen/contentHorizontalPadding"
         android:text="@string/package_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/app_version_textview"
+        app:layout_constraintStart_toStartOf="@+id/guideline_text_start"
+        app:layout_constraintTop_toTopOf="@+id/app_icon_imageview"
         tools:text="Имя пакета:" />
 
     <TextView
@@ -57,7 +76,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_text_start"
         app:layout_constraintTop_toBottomOf="@id/app_package_name_textview"
         tools:text="com.cool_company.cool_app" />
 
@@ -69,9 +88,9 @@
         android:text="@string/apk_checksum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_text_start"
         app:layout_constraintTop_toBottomOf="@id/app_package_name_value_textview"
-        tools:text="Контрольная сумма apk-файла (CRC32):" />
+        tools:text="Контрольная сумма apk-файла (CRC-32):" />
 
     <TextView
         android:id="@+id/app_apk_checksum_value_textview"
@@ -80,7 +99,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_text_start"
         app:layout_constraintTop_toBottomOf="@id/app_apk_checksum_textview"
         tools:text="CBF43926" />
 
@@ -93,32 +112,10 @@
         android:textSize="@dimen/textSizeRegularText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_apk_checksum_textview"
-        app:layout_constraintVertical_bias="0.95" />
-
-    <FrameLayout
-        android:id="@+id/progress_indicator"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        tools:visibility="gone"
-        android:background="?attr/backgroundColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="?attr/backgroundColor"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </FrameLayout>
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@id/guideline_text_start"
+        app:layout_constraintTop_toBottomOf="@+id/app_apk_checksum_value_textview"
+        app:layout_constraintVertical_bias="0.9" />
 
     <TextView
         android:id="@+id/error_textview"
@@ -133,5 +130,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/progress_indicator"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/backgroundColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="?attr/backgroundColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

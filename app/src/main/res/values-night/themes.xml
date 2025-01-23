@@ -1,10 +1,10 @@
 <resources>
-    <style name="Base.Theme.AppInfoChecker" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="backgroundColor">@color/white</item>
-        <item name="backgroundColorListItem">@color/white</item>
-        <item name="rippleColorOnBackground">@color/light_gray</item>
-        <item name="textColorMain">@color/dark_gray_main</item>
-        <item name="textColorSecondary">@color/dark_gray_secondary</item>
+    <style name="Theme.AppInfoChecker" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="backgroundColor">@color/very_dark_gray</item>
+        <item name="rippleColorOnBackground">@color/dark_gray_secondary</item>
+        <item name="textColorMain">@color/white</item>
+        <item name="textColorSecondary">@color/gray</item>
+        <item name="controlColor">@color/gray</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/pale_green</item>
         <item name="colorPrimaryVariant">@color/dark_green</item>
@@ -15,5 +15,6 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:windowBackground">@color/very_dark_gray</item>
     </style>
 </resources>
