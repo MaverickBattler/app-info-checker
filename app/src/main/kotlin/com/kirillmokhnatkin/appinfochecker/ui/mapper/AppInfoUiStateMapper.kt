@@ -26,7 +26,8 @@ class AppInfoUiStateMapper(
             packageName = appInfo.packageName,
             versionName = versionString,
             checkSum = stringChecksum,
-            appIcon = appInfo.appIcon
+            appIcon = appInfo.appIcon,
+            buttonOpenAppEnabled = appInfo.canOpenApp
         )
     }
 }

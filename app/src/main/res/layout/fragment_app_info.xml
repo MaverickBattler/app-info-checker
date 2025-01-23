@@ -98,8 +98,8 @@
         app:layout_constraintTop_toBottomOf="@+id/app_apk_checksum_textview"
         app:layout_constraintVertical_bias="0.95" />
 
-    <FrameLayout
-        android:id="@+id/progress_indicator"
+    <View
+        android:id="@+id/progress_cover"
         android:layout_width="0dp"
         android:layout_height="0dp"
         tools:visibility="gone"
@@ -107,18 +107,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="?attr/backgroundColor"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </FrameLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/error_textview"

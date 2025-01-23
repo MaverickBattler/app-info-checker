@@ -8,4 +8,5 @@ data class AppInfo(
     val versionName: String?,
     val apkPath: String,
     val appIcon: Drawable,
+    val canOpenApp: Boolean,
 )

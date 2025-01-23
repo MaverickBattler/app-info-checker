@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewPropertyAnimator
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -42,30 +43,27 @@ class AppInfoFragment : Fragment() {
                 is AppInfoUiState.Content -> {
                     binding.apply {
                         errorTextview.isVisible = false
-                        progressIndicator.isVisible = false
+                        progressCover.fadeOut()
                         appIconImageview.setImageDrawable(uiState.appIcon)
                         appNameTextview.text = uiState.appName
                         appVersionTextview.text = uiState.versionName
                         appPackageNameValueTextview.text = uiState.packageName
                         appApkChecksumValueTextview.text = uiState.checkSum
+                        openAppButton.isEnabled = uiState.buttonOpenAppEnabled
                     }
                 }
 
                 AppInfoUiState.Loading -> {
                     binding.apply {
                         errorTextview.isVisible = false
-                        progressIndicator.isVisible = true
-                        appNameTextview.text = ""
-                        appVersionTextview.text = ""
-                        appPackageNameValueTextview.text = ""
-                        appApkChecksumValueTextview.text = ""
+                        progressCover.setPossiblyDisappearingViewVisible()
                     }
                 }
 
                 AppInfoUiState.Error -> {
                     binding.apply {
-                        binding.progressIndicator.isVisible = false
-                        binding.errorTextview.isVisible = true
+                        progressCover.setPossiblyDisappearingViewVisible()
+                        errorTextview.isVisible = true
                     }
                 }
             }
@@ -89,8 +87,32 @@ class AppInfoFragment : Fragment() {
         }
     }
 
+    private var fadingOutAnimation: ViewPropertyAnimator? = null
+    private var animationRunning = false
+
+    private fun View.fadeOut(duration: Long = DEFAULT_APPEARING_DURATION) {
+        if (!animationRunning && isVisible) {
+            animationRunning = true
+            fadingOutAnimation = this.animate().alpha(0f).setDuration(duration).withEndAction {
+                isVisible = false
+                animationRunning = false
+                fadingOutAnimation = null
+            }
+        }
+    }
+
+    private fun View.setPossiblyDisappearingViewVisible() {
+        fadingOutAnimation?.cancel()
+        isVisible = true
+        alpha = 1f
+    }
+
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
+    }
+
+    companion object {
+        private const val DEFAULT_APPEARING_DURATION = 200L
     }
 }

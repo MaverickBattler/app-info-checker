@@ -20,6 +20,7 @@ class GetApplicationInfoInteractor(
                 versionName = appInfo.versionName,
                 apkChecksum = checksum,
                 appIcon = appInfo.appIcon,
+                canOpenApp = appInfo.canOpenApp,
             )
         }
     }

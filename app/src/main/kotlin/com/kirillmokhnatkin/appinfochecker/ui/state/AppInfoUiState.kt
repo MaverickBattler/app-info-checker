@@ -12,6 +12,7 @@ sealed interface AppInfoUiState {
         val versionName: CharSequence,
         val checkSum: String,
         val appIcon: Drawable,
+        val buttonOpenAppEnabled: Boolean,
     ): AppInfoUiState
 
     data object Error: AppInfoUiState

@@ -8,4 +8,5 @@ class AppInfoWithChecksum(
     val versionName: String?,
     val apkChecksum: Long,
     val appIcon: Drawable,
+    val canOpenApp: Boolean,
 )

@@ -132,7 +132,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
-        android:id="@+id/progress_indicator"
+        android:id="@+id/progress_cover"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="?attr/backgroundColor"

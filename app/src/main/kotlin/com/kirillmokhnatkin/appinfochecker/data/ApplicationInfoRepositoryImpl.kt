@@ -37,12 +37,14 @@ class ApplicationInfoRepositoryImpl(
         val versionName = packageInfo.versionName
         val apkPath = applicationInfo.sourceDir
         val appIcon = applicationInfo.loadIcon(packageManager)
+        val canOpenApp = packageManager.getLaunchIntentForPackage(packageName) != null
         return AppInfo(
             appName = appLabel,
             packageName = packageName,
             versionName = versionName,
             apkPath = apkPath,
             appIcon = appIcon,
+            canOpenApp = canOpenApp
         )
     }
 }
