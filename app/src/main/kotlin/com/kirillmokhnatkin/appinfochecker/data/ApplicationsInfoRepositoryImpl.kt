@@ -9,7 +9,6 @@ import com.kirillmokhnatkin.appinfochecker.domain.repository.ApplicationsInfoRep
 import com.kirillmokhnatkin.appinfochecker.domain.model.AppShortInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import timber.log.Timber
 
 class ApplicationsInfoRepositoryImpl(
     private val application: Application
@@ -17,15 +16,12 @@ class ApplicationsInfoRepositoryImpl(
 
     override suspend fun getApplicationsInfo(): List<AppShortInfo> {
         return withContext(Dispatchers.IO) {
-            val startTime = System.currentTimeMillis()
             val packageManager = application.packageManager
             val apps = mutableListOf<AppShortInfo>()
             val installedApplicationsInfo = packageManager.getInstalledApplications(0)
             for (applicationInfo in installedApplicationsInfo) {
                 apps.add(getAppShortInfo(packageManager, applicationInfo))
             }
-            val endTime = System.currentTimeMillis()
-            Timber.i("abcdea time took = ${endTime - startTime} ms")
             apps
         }
     }
