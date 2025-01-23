@@ -16,6 +16,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters.add("x86_64")
+            abiFilters.add("arm64-v8a")
+        }
     }
 
     buildFeatures {
