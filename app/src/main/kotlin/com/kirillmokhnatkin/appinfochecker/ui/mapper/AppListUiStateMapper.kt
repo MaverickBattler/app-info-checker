@@ -10,19 +10,22 @@ class AppListUiStateMapper(
     private val application: Application,
 ) {
 
-    fun mapAppListUiState(appShortInfoList: List<AppShortInfo>): AppListUiState {
+    fun mapAppListUiState(
+        curList: List<AppInfoModel>,
+        appShortInfoList: List<AppShortInfo>
+    ): AppListUiState {
         val appInfoModelList = appShortInfoList
-            .sortedBy { it.appName }
             .map { appShortInfo ->
                 AppInfoModel(
                     appName = appShortInfo.appName,
                     packageName = appShortInfo.packageName,
                     versionName = appShortInfo.versionName
-                        ?: application.getString(R.string.version_unknown)
+                        ?: application.getString(R.string.version_unknown),
                 )
             }
+        val appsInfoList = curList + appInfoModelList
         return AppListUiState.Content(
-            appsInfoList = appInfoModelList,
+            appsInfoList = appsInfoList,
             isSwipeRefreshLayoutIndicatorShown = false
         )
     }

@@ -14,12 +14,20 @@ class ApplicationsInfoRepositoryImpl(
     private val application: Application
 ) : ApplicationsInfoRepository {
 
-    override suspend fun getApplicationsInfo(): List<AppShortInfo> {
+    override suspend fun getApplicationInfoList(): List<ApplicationInfo> {
+        return withContext(Dispatchers.IO) {
+            val packageManager = application.packageManager
+            packageManager.getInstalledApplications(0)
+        }
+    }
+
+    override suspend fun getInfoForGivenApplications(
+        applicationsInfo: List<ApplicationInfo>
+    ): List<AppShortInfo> {
         return withContext(Dispatchers.IO) {
             val packageManager = application.packageManager
             val apps = mutableListOf<AppShortInfo>()
-            val installedApplicationsInfo = packageManager.getInstalledApplications(0)
-            for (applicationInfo in installedApplicationsInfo) {
+            for (applicationInfo in applicationsInfo) {
                 apps.add(getAppShortInfo(packageManager, applicationInfo))
             }
             apps
@@ -38,7 +46,6 @@ class ApplicationsInfoRepositoryImpl(
             null // found app info, but didn't find package info
         }
         val versionName = packageInfo?.versionName
-
         return AppShortInfo(
             appName = appLabel,
             packageName = packageName,

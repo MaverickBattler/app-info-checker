@@ -112,7 +112,7 @@ class AppInfoFragment : Fragment() {
         super.onDestroyView()
     }
 
-    companion object {
-        private const val DEFAULT_APPEARING_DURATION = 200L
+    private companion object {
+        const val DEFAULT_APPEARING_DURATION = 200L
     }
 }

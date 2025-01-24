@@ -4,8 +4,9 @@ import com.kirillmokhnatkin.appinfochecker.data.ApplicationInfoRepositoryImpl
 import com.kirillmokhnatkin.appinfochecker.data.ApplicationsInfoRepositoryImpl
 import com.kirillmokhnatkin.appinfochecker.domain.repository.ApplicationInfoRepository
 import com.kirillmokhnatkin.appinfochecker.domain.repository.ApplicationsInfoRepository
-import com.kirillmokhnatkin.appinfochecker.domain.interactor.GetAllApplicationsInfoInteractor
+import com.kirillmokhnatkin.appinfochecker.domain.interactor.GetInfoForGivenApplicationsInteractor
 import com.kirillmokhnatkin.appinfochecker.domain.interactor.GetApplicationInfoInteractor
+import com.kirillmokhnatkin.appinfochecker.domain.interactor.GetApplicationInfoListInteractor
 import com.kirillmokhnatkin.appinfochecker.ui.mapper.AppInfoUiStateMapper
 import com.kirillmokhnatkin.appinfochecker.ui.mapper.AppListUiStateMapper
 import com.kirillmokhnatkin.appinfochecker.ui.viewmodel.AppInfoViewModel
@@ -26,8 +27,9 @@ val mainModule = module {
 
     viewModel {
         AppListViewModel(
-            getAllApplicationsInfoInteractor = get(),
+            getInfoForGivenApplicationsInteractor = get(),
             appListUiStateMapper = get(),
+            getApplicationInfoListInteractor = get(),
         )
     }
 
@@ -52,7 +54,7 @@ val mainModule = module {
     }
 
     factory {
-        GetAllApplicationsInfoInteractor(
+        GetInfoForGivenApplicationsInteractor(
             applicationsInfoRepository = get()
         )
     }
@@ -60,6 +62,12 @@ val mainModule = module {
     factory {
         GetApplicationInfoInteractor(
             applicationInfoRepository = get()
+        )
+    }
+
+    factory {
+        GetApplicationInfoListInteractor(
+            applicationsInfoRepository = get()
         )
     }
 

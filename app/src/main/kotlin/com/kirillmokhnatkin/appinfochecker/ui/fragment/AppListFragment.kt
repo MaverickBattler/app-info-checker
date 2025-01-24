@@ -1,6 +1,8 @@
 package com.kirillmokhnatkin.appinfochecker.ui.fragment
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,10 +42,19 @@ class AppListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
+    private var recentlyClicked = false // for debounce effect on click
+        set(value) {
+            field = value
+            Handler(Looper.getMainLooper()).postDelayed({ field = false }, 500)
+        }
+
     private fun setupAppList() {
         val onItemClickListener = { packageName: String ->
-            val action = AppListFragmentDirections.actionAppListToAppInfo(packageName)
-            findNavController().navigate(action)
+            if (!recentlyClicked) {
+                recentlyClicked = true
+                val action = AppListFragmentDirections.actionAppListToAppInfo(packageName)
+                findNavController().navigate(action)
+            }
         }
         val adapter = AppListAdapter(onItemClickListener)
         viewModel.uiState.collectValues(lifecycleScope, lifecycle) { uiState ->
