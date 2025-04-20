@@ -26,7 +26,7 @@ class AppListUiStateMapper(
         val appsInfoList = curList + appInfoModelList
         return AppListUiState.Content(
             appsInfoList = appsInfoList,
-            isSwipeRefreshLayoutIndicatorShown = false
+            shouldHideRefreshLayoutIndicator = true
         )
     }
 }

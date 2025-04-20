@@ -65,7 +65,7 @@ class AppListViewModel(
     private fun setSwipeRefreshLoading() {
         _uiState.update { currentState ->
             if (currentState is AppListUiState.Content) {
-                currentState.copy(isSwipeRefreshLayoutIndicatorShown = true)
+                currentState.copy(shouldHideRefreshLayoutIndicator = false)
             } else {
                 currentState
             }

@@ -38,7 +38,7 @@ class AppInfoFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel.uiState.collectValues(lifecycleScope, lifecycle) { uiState ->
+        viewModel.uiState.collectValues(lifecycleScope, viewLifecycleOwner.lifecycle) { uiState ->
             when (uiState) {
                 is AppInfoUiState.Content -> {
                     binding.apply {
@@ -90,7 +90,7 @@ class AppInfoFragment : Fragment() {
     private var fadingOutAnimation: ViewPropertyAnimator? = null
     private var animationRunning = false
 
-    private fun View.fadeOut(duration: Long = DEFAULT_APPEARING_DURATION) {
+    private fun View.fadeOut(duration: Long = DEFAULT_FADE_OUT_DURATION) {
         if (!animationRunning && isVisible) {
             animationRunning = true
             fadingOutAnimation = this.animate().alpha(0f).setDuration(duration).withEndAction {
@@ -113,6 +113,6 @@ class AppInfoFragment : Fragment() {
     }
 
     private companion object {
-        const val DEFAULT_APPEARING_DURATION = 200L
+        const val DEFAULT_FADE_OUT_DURATION = 200L
     }
 }

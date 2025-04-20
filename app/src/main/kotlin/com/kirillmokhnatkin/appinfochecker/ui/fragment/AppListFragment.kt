@@ -57,10 +57,10 @@ class AppListFragment : Fragment() {
             }
         }
         val adapter = AppListAdapter(onItemClickListener)
-        viewModel.uiState.collectValues(lifecycleScope, lifecycle) { uiState ->
+        viewModel.uiState.collectValues(lifecycleScope, viewLifecycleOwner.lifecycle) { uiState ->
             when (uiState) {
                 is AppListUiState.Content -> {
-                    if (!uiState.isSwipeRefreshLayoutIndicatorShown) {
+                    if (uiState.shouldHideRefreshLayoutIndicator) {
                         binding.swiperefresh.isRefreshing = false
                     }
                     binding.progressBar.isVisible = false
